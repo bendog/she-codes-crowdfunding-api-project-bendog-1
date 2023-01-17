@@ -23,6 +23,7 @@ class ProjectList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ProjectDetail(APIView):
 
     def get_object(self, pk):
@@ -36,6 +37,10 @@ class ProjectDetail(APIView):
         serializer = ProjectSerializer(project)
         return Response(serializer.data)
 
+
 class PledgeList(generics.ListCreateAPIView):
     queryset = Pledge.objects.all()
     serializer_class = PledgeSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(supporter=self.request.user)
