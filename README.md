@@ -2,8 +2,8 @@
 
 ## Step 1: Install Fly, sign-up and create your app.
 
-    $ brew install flyctl 
-    $ fly auth signup 
+    $ brew install flyctl
+    $ fly auth signup
 
 make sure credit card details are entered
 
@@ -13,7 +13,7 @@ make sure you are in this directory
     Creating app in /Users/fitzbe/Documents/shecodes/code/she-codes-crowdfunding-api-project-bendog-1
     Scanning source code
     Detected a Django app
-    ? Choose an app name (leave blank to generate one): 
+    ? Choose an app name (leave blank to generate one):
     automatically selected personal organization: Ben Fitzhardinge
     ? Choose a region for deployment: Sydney, Australia (syd)
     Created app rough-brook-8273 in organization personal
@@ -121,8 +121,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 then run
 
-    $ chmod +x run.sh 
-    $ fly volumes create -r syd --size 1 dbvol 
+    $ chmod +x run.sh
+    $ fly volumes create -r syd --size 1 dbvol
             ID: vol_w0enxv3x86wv8okp
           Name: dbvol
            App: rough-brook-8273
@@ -133,13 +133,13 @@ then run
     Created at: 20 Jan 23 04:15 UTC
 
     $ flyctl secrets set DATABASE_DIR='/dbvol/db.sqlite3'
-    Secrets are staged for the first deployment%   
+    Secrets are staged for the first deployment%  
     $ flyctl secrets set DJANGO_SUPERUSER_USERNAME='admin'
-    Secrets are staged for the first deployment%   
+    Secrets are staged for the first deployment%  
     $ flyctl secrets set DJANGO_SUPERUSER_EMAIL='ben@notmyemail.org'
-    Secrets are staged for the first deployment%   
+    Secrets are staged for the first deployment%  
     $ flyctl secrets set DJANGO_SUPERUSER_PASSWORD='very_secure_password'
-    Secrets are staged for the first deployment%   
+    Secrets are staged for the first deployment%  
 
 ## Step 5: Check it works!
 
@@ -155,7 +155,7 @@ update `requirements.txt`
 django-cors-headers==3.11.0
 ```
 
-update your virtual environment 
+update your virtual environment
 
     $ pip install -r requirements.txt
 
